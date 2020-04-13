@@ -1,0 +1,67 @@
+.main{
+    padding-top:130px;
+}
+
+.title{
+    background-color: #7E1399;
+    padding: 8px;
+    text-align: center;
+    margin-bottom:20px;
+    letter-spacing: 0.7rem;
+    font-weight: 700;
+    font-family: 'Audiowide';
+    color: white;
+    font-size: 28px;
+    background-image: linear-gradient(#7E1399,#5A098E);
+    border-radius: 30px 0px 30px 0px;
+}
+
+.icons{
+    margin-top:10px;
+}
+.icon{
+    font-size: 34px;
+    padding: 20px;
+    color:purple;
+}
+
+.item:focus {
+    border-color:rgba(152, 26, 161,0.9);
+    box-shadow: 0 1px 1px rgba(130, 20, 154, 0.075) inset, 0 0 8px rgba(130, 20, 154, 0.6);
+    outline: 0 none;
+}
+
+.span{
+    font-size: 1.1rem;
+    font-family: 'Indie Flower', cursive;
+    vertical-align: middle;
+    padding: 7px;
+}
+
+.buttontop{
+    letter-spacing: 0.1rem;
+    width: 100%;
+    font-size: 14px;
+    color:white;
+    margin-top: 5px;
+    font-family: 'Audiowide', cursive;
+    /* padding: 10px 40px 10px 40px; */
+    border-radius: 16px;
+    background-image: linear-gradient(#7E1399,#5A098E);
+}
+
+.button{
+    margin-top:20px;
+    width: 100%;
+    font-size: 19px;
+    color:white;
+    font-family: 'Audiowide', cursive;
+    padding: 10px 40px 10px 40px;
+    border-radius: 20px;
+    background-image: linear-gradient(#7E1399,#5A098E);
+}
+
+.button:hover{
+    color:rgba(255,255,255,1);
+    opacity: 0.9;
+}
