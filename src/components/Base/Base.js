@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import Menu from '../Menu/Menu';
 import styles from './Base.module.css';
 

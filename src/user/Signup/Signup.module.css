@@ -1,5 +1,5 @@
 .main{
-    padding-top:130px;
+    padding-top:80px;
 }
 
 .title{
@@ -17,12 +17,18 @@
 }
 
 .icons{
-    margin-top:10px;
+    padding-top:10px;
 }
 .icon{
     font-size: 34px;
     padding: 20px;
     color:purple;
+}
+
+.label{
+    color: rgba(0,0,0,0.8);
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .item:focus {

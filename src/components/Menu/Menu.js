@@ -1,29 +1,41 @@
-import React,{useState} from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import {Link,withRouter} from 'react-router-dom';
 import styles from './Menu.module.css';
-const Menu =()=>{
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+import {signout,isAutheticated} from '../../auth/helper/index'
 
-    const toggle = () => setDropdownOpen(!dropdownOpen);
+const Menu =({history})=>{
   
     return(
     <div className=' p-2'>
        <nav className="navbar navbar-expand-lg ">
                 <ul className="navbar-nav mr-auto">
                 <li className="nav-item ">
-                    <Link className={`nav-link px-4 ${styles.link}`}  href="#">Home</Link>
+                    <Link className={`nav-link px-4 ${styles.link}`}  to='/'>Home</Link>
                 </li>
                 <li className="nav-item ">
-                    <Link className={`nav-link px-4 ${styles.link}`}  href="#">Books</Link>
+                    <Link className={`nav-link px-4 ${styles.link}`} to='/books' >Books</Link>
                 </li>
                </ul>
                 <form className="form-inline">
-                <Link className={`nav-link mr-2 ${styles.button}`} to='signup'>Signup</Link>
-                <Link className={`nav-link ${styles.button}`} to="/signin">Signin</Link>
+                    {!isAutheticated() && (
+                        <React.Fragment>
+                          <Link className={`nav-link mr-2 ${styles.button}`} to='signup'>Signup</Link>
+                          <Link className={`nav-link ${styles.button}`} to="/signin">Signin</Link>
+                        </React.Fragment>
+                    )}
+
+                    {isAutheticated() && (
+                        <Link className={`nav-link mr-2 ${styles.button}`}  
+                            onClick={() => {
+                            signout(() => {
+                              history.push("/");
+                            });
+                          }}>Signout</Link>
+                    )}
                 </form>
         </nav>
     </div>
     )
 }
 
-export default Menu;
+export default withRouter(Menu);
