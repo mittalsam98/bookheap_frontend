@@ -9,7 +9,12 @@
 }
 
 .innerimg{
+    height: 180px;
     overflow: hidden;
+}
+
+.details{
+font-size: 0.9rem;
 }
 
 .innerimg img{

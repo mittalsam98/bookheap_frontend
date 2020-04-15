@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import Signin from './user/Signin/Signin';
 import Signup from './user/Signup/Signup';
 import Books from './components/BooksDisplay/Book';
+import AddProduct from './components/AddProduct/AddProduct';
 
 const Routes=()=>{
     return(
@@ -12,6 +13,7 @@ const Routes=()=>{
         <Route exact path='/signin' component={Signin} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/books' component={Books} />
+        <Route exact path='/user/product' component={AddProduct} />
         </BrowserRouter>
     )
 }
