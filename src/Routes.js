@@ -5,6 +5,9 @@ import Signin from './user/Signin/Signin';
 import Signup from './user/Signup/Signup';
 import Books from './components/BooksDisplay/Book';
 import AddProduct from './components/AddProduct/AddProduct';
+import PrivateRoute from './auth/helper/PrivateRoute';
+import Account from './user/Account/Account';
+
 
 const Routes=()=>{
     return(
@@ -14,6 +17,8 @@ const Routes=()=>{
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/books' component={Books} />
         <Route exact path='/user/product' component={AddProduct} />
+        <PrivateRoute exact path='/account' component={Account} />
+        <PrivateRoute exact path='/myproducts' component={Account} />
         </BrowserRouter>
     )
 }

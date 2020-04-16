@@ -49,7 +49,7 @@ const Signin=()=>{
       const performRedirect = () => {
         //TODO: do a redirect here
         if (didRedirect) {
-            return <Redirect to="/user/dashboard" />;
+            return <Redirect to="/" />;
         }
         if (isAutheticated()) {
           return <Redirect to="/" />;
