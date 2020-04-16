@@ -18,7 +18,7 @@ const Routes=()=>{
         <Route exact path='/books' component={Books} />
         <Route exact path='/user/product' component={AddProduct} />
         <PrivateRoute exact path='/account' component={Account} />
-        <PrivateRoute exact path='/myproducts' component={Account} />
+        <PrivateRoute exact path='/addproduct' component={AddProduct} />
         </BrowserRouter>
     )
 }

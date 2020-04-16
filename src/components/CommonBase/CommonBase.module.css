@@ -1,3 +1,16 @@
 .nav{
     background-image: linear-gradient(to right,#5A098E,#7E1399);
+}.button{
+    font-size: 19px;
+    color:white;
+    font-family: 'Audiowide', cursive;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    letter-spacing: 7px;
+    background-image: linear-gradient(rgba(126, 19, 153,1),rgb(90, 9, 142,1));
+}
+
+.button:hover{
+    color:rgba(255,255,255,1);
+    opacity: 0.9;
 }

@@ -1,67 +1,52 @@
 import React,{useState} from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button} from 'reactstrap';
+import CommonBase from '../CommonBase/CommonBase';
 
 const AddProduct= () => {
 
-    
-      const [modal, setModal] = useState(false);
-    
-      const toggle = () => setModal(!modal);
-    
-      const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
-    
+
       const handleChange=()=>{
             console.log("Hello")
     };
     console.log('outside return')
  
     return (
-        <div>
-        <Button color="danger" onClick={toggle}>CLICK ME</Button>
-        <Modal isOpen={modal} toggle={toggle} className=''>
-          <ModalHeader toggle={toggle} close={closeBtn}>Modal title</ModalHeader>
-          <ModalBody>
+      <CommonBase>
+          <div className='container w-50 mt-5 border'>
           <form>
-           
             <div className={`form-group`}>
-                <label htmlFor="password" className=''>Password*</label>
-                <input 
-                onChange={handleChange('')} 
-                type="password" 
-                className={`form-control`} 
-                id="password" 
-                placeholder="Enter your password" 
-                />
-            </div>
-            <div className={`form-group`}>
-                <label htmlFor="details" className=''>Enter some details about youself</label>
+                <label htmlFor="book" className=''>Book Name</label>
                 <input 
                 onChange={handleChange('')} 
                 type="text" 
-                className={`form-control `} 
-                id="details" 
-                placeholder="Something about yourself" 
+                className={`form-control`} 
+                id="book" 
                 />
             </div>
             <div className={`form-group`}>
-                <label htmlFor="phone" className=''>Phone no</label>
+                <label htmlFor="description" className=''>Description of the book</label>
+                <textarea 
+                onChange={handleChange('')} 
+                type="text" 
+                className={`form-control `} 
+                id="description" 
+                />
+            </div>
+            <div className={`form-group`}>
+                <label htmlFor="price" className=''>Price</label>
                 <input 
                 onChange={handleChange('')} 
                 type="number" 
                 className={`form-control `} 
-                id="phone" 
-                placeholder="Enter you phone number" 
+                id="price" 
                 />
             </div>
             <div className="form-group">
-            </div>
             <Button color="primary" onClick={()=>handleChange()}>Do Something</Button>{' '}
+            </div>
         </form>     
-               </ModalBody>
-          <ModalFooter>
-          </ModalFooter>
-        </Modal>
       </div>
+        </CommonBase>   
     )
 }
 export default AddProduct;
