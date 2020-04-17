@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
-import { Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
+import { Button, Popover, PopoverBody } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import styles from './Dashboard.module.css'
-import {isAutheticated} from '../../auth/helper/index' 
 
  const Dashboard=()=> {
     const [popoverOpen, setPopoverOpen] = useState(false);

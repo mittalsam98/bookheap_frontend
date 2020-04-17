@@ -1,5 +1,4 @@
 import React from 'react';
-import Menu from '../Menu/Menu';
 import styles from './Card.module.css';
 import {isAutheticated} from '../../auth/helper/index' 
 import { MdFavoriteBorder } from 'react-icons/md';
@@ -10,7 +9,7 @@ const Card =({product})=>{
         <div className={styles.innerimg}>  <img className="card-img-top" src='https://images.pexels.com/photos/1178683/pexels-photo-1178683.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt="Card image cap" /></div>
         <div className={`card-body ${styles.cardbody}`}>
             <h6 className="card-title">{product.name}</h6>
-            <p numberOfLines='2' className="card-text">{product.description.substr(0,30)}</p>
+            <p className="card-text">{product.description.substr(0,30)}</p>
             {isAutheticated() && 
             (
                 <>

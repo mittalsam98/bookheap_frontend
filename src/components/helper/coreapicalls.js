@@ -8,3 +8,21 @@ export const getProducts = () => {
       .catch(err => console.log(err));
   };
   
+
+export const createProducts = (_id,token,formData) => {
+    formData.append('upload',_id);
+    return fetch(`${API}/product/create/${_id}`, { 
+      method: "POST",
+      headers:{
+        Accept: "application/json",
+      Authorization:`Bearer ${token}`
+      },
+      body:formData
+     })
+      .then(response => {
+        return response.json();
+      })
+      .catch(err => console.log(err));
+  };
+  
+

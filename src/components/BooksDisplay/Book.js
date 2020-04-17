@@ -13,7 +13,6 @@ const Book =()=>{
           if (data.error) {
             setError(data.error);
           } else {
-              console.log(data)
             setProducts(data);
           }
         });
@@ -31,7 +30,7 @@ const Book =()=>{
           <div className='row  mx-auto justify-content-around' style={{padding:'0px 100px'}}>
           {products.map((product,index)=>{
               return (
-                  <div className='col' style={{margin:'1px'}}>
+                  <div  key={index}  className='col' style={{margin:'1px'}}>
                   <Card product={product} />
                   </div>
               )

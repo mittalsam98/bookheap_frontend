@@ -5,7 +5,6 @@ import {signout,isAutheticated} from '../../auth/helper/index'
 
 const Menu =({history})=>{
   
-    console.log(history.location.pathname==='/');
     return(
     <div className=' p-2'>
        <nav className="navbar navbar-expand-lg ">
@@ -26,7 +25,7 @@ const Menu =({history})=>{
                     )}
 
                     {isAutheticated() && (
-                        <Link className={`nav-link mr-2 ${history.location.pathname==='/'?styles.buttonsignout:styles.button}`}  
+                        <Link to='/signout' className={`nav-link mr-2 ${history.location.pathname==='/'?styles.buttonsignout:styles.button}`}  
                             onClick={() => {
                             signout(() => {
                               history.push("/");
