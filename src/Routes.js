@@ -7,6 +7,7 @@ import Books from './components/BooksDisplay/Book';
 import AddProduct from './components/AddProduct/AddProduct';
 import PrivateRoute from './auth/helper/PrivateRoute';
 import Account from './user/Account/Account';
+import MyProducts from './user/MyProducts/MyProducts';
 
 
 const Routes=()=>{
@@ -16,9 +17,10 @@ const Routes=()=>{
         <Route exact path='/signin' component={Signin} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/books' component={Books} />
-        <Route exact path='/user/product' component={AddProduct} />
+        {/* <PrivateRoute exact path='/user/product' component={AddProduct} /> */}
         <PrivateRoute exact path='/account' component={Account} />
         <PrivateRoute exact path='/addproduct' component={AddProduct} />
+        <PrivateRoute exact path='/myproducts' component={MyProducts} />
         </BrowserRouter>
     )
 }

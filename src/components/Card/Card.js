@@ -1,9 +1,25 @@
 import React from 'react';
 import styles from './Card.module.css';
 import {isAutheticated} from '../../auth/helper/index' 
-import { MdFavoriteBorder } from 'react-icons/md';
+import { MdFavoriteBorder,MdDelete } from 'react-icons/md';
+import { withRouter } from 'react-router-dom';
+import { addFavourite } from '../../user/helper/userapicalls';
 
-const Card =({product})=>{
+const Card =({product ,history})=>{
+
+    const {user,token} =isAutheticated();
+
+    const addFavouriteHandler =()=>{
+        addFavourite(user._id,product._id,token)
+        .then(data => {
+            if (data.error) {
+                console.log(data.error);
+            } else {
+                console.log(data);
+            }
+          })
+    }
+
     return( 
         <div className={`card ${styles.card}`} style={{width:'17rem',height:''}} >
         <div className={styles.innerimg}>  <img className="card-img-top" src='https://images.pexels.com/photos/1178683/pexels-photo-1178683.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt="Card image cap" /></div>
@@ -18,7 +34,8 @@ const Card =({product})=>{
                             <p>Price : Rs.{product.price}</p>
                         </div>
                         <div className='mr-3 font-weight-bold'>
-                            <MdFavoriteBorder />
+                        {history.location.pathname==='/books'?
+                            <MdFavoriteBorder onClick={()=>{addFavouriteHandler(product.id)}}  />:  <MdDelete onClick={()=>{}}/> }
                         </div>    
                         </div>
                         <hr />
@@ -41,4 +58,4 @@ const Card =({product})=>{
         )
 }
 
-export default Card
+export default withRouter(Card)
