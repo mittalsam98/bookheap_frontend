@@ -3,7 +3,7 @@ import styles from './Card.module.css';
 import {isAutheticated} from '../../auth/helper/index' 
 import { MdFavoriteBorder,MdDelete } from 'react-icons/md';
 import { withRouter } from 'react-router-dom';
-import { addFavourite } from '../../user/helper/userapicalls';
+import { addFavourite, deleteFavourites } from '../../user/helper/userapicalls';
 
 const Card =({product ,history})=>{
 
@@ -12,9 +12,21 @@ const Card =({product ,history})=>{
     const addFavouriteHandler =()=>{
         addFavourite(user._id,product._id,token)
         .then(data => {
-            if (data.error) {
-                console.log(data.error);
-            } else {
+            if (data) {
+                // console.log(data.error);
+            // } else {
+                console.log(data);
+            }
+          })
+    }
+
+    const deleteFavouriteHandler =()=>{
+        console.log("hel");
+        deleteFavourites(user._id,product._id,token)
+        .then(data => {
+            if (data) {
+                // console.log(data.error);
+            // } else {
                 console.log(data);
             }
           })
@@ -28,14 +40,14 @@ const Card =({product ,history})=>{
             <p className="card-text">{product.description.substr(0,30)}</p>
             {isAutheticated() && 
             (
-                <>
-                    <div className='row justify-content-between'>
+                <React.Fragment>
+                    <div className='row  justify-content-between'>
                         <div className='ml-2 font-weight-bold'> 
                             <p>Price : Rs.{product.price}</p>
                         </div>
                         <div className='mr-3 font-weight-bold'>
                         {history.location.pathname==='/books'?
-                            <MdFavoriteBorder onClick={()=>{addFavouriteHandler(product.id)}}  />:  <MdDelete onClick={()=>{}}/> }
+                            <MdFavoriteBorder onClick={()=>{addFavouriteHandler(product.id)}}  />:  <MdDelete onClick={()=>{deleteFavouriteHandler(product._id)}}/> }
                         </div>    
                         </div>
                         <hr />
@@ -50,7 +62,7 @@ const Card =({product ,history})=>{
                         <p>Contact: {product.upload.phoneNo}</p>
                         </div>    
                     </div>
-                </>
+                </React.Fragment>
              )}
         </div>
         </div>

@@ -68,7 +68,7 @@ const Signin=()=>{
                 <Link to='/signup' className='d-inline-block'><button className={`btn ${styles.buttontop}`}  type='submit'>Signup Now</button></Link>
             </div>       
         </div>
-        <div className={`container w-25 ${styles.main}`}>
+        <div className={`container ${styles.main}`}>
             <h2 className={styles.welcome}>Welcome Back</h2>
         <div className={styles.title}>
                 Sign In

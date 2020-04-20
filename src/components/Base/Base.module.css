@@ -6,3 +6,25 @@
   /* background-size: contain; */
     background-repeat: no-repeat;
   }
+
+  @media (min-width:990px){
+    .main{
+      height: 100vh;
+    }
+  }
+
+  @media(max-width:500px){
+    .main{
+      height: 100%;
+    }
+  }
+  @media(max-width:500px) and (min-height:667px){
+    .main{
+      height: 101vh;
+    }
+  }
+  @media(max-width:768px) and (min-height:667px){
+    .main{
+      height: 101vh;
+    }
+  }

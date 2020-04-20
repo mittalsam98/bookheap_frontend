@@ -66,12 +66,12 @@ const Signup=()=>{
             <div className='float-left d-inline'>
                 <Link to='/' className={`${styles.icon}`} ><FaRegArrowAltCircleLeft /></Link>
             </div>
-            <div className='float-right mr-5'>
+            <div className={`float-right mr-5 ${styles.spanParent}`}>
                 <span  className={`${styles.span}`}>Already have account</span>
                 <Link to='/signin'  className='d-inline-block'><button className={`btn ${styles.buttontop}`}  type='submit'>Signin</button></Link>
             </div>       
         </div>
-        <div className={`container w-25 ${styles.main}`}>
+        <div className={`container  ${styles.main}`}>
         <div className={styles.title}>
                 Sign Up
         </div>

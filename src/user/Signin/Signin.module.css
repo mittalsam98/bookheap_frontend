@@ -1,5 +1,7 @@
 .main{
     padding-top:130px;
+    width:420px;
+
 }
 
 .title{
@@ -70,4 +72,13 @@
 .button:hover{
     color:rgba(255,255,255,1);
     opacity: 0.9;
+}
+
+
+
+@media (max-width:500px){
+    .main{
+        padding-top:80px;
+        width:100%
+    }
 }

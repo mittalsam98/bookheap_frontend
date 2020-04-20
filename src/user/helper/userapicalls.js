@@ -28,6 +28,26 @@ return fetch(`${API}/addfavorites/${_id}/${productId}`, {
         .catch(err => console.log(err));
 }
 
+
+
+export const deleteFavourites =(_id,productId,token)=>{
+    console.log(productId,token,_id)
+return fetch(`${API}/favorites/${_id}/${productId}`, { 
+        method: "GET",
+        headers:{
+            Accept: "application/json",
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${token}`
+        }
+        })
+        .then(response => {
+        return response.json();
+        })
+        .catch(err => console.log(err));
+}
+
+
+
 export const getFavourite =(_id,token)=>{
 return fetch(`${API}/favorites/${_id}`, { 
         method: "GET",

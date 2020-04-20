@@ -30,7 +30,7 @@ const Book =()=>{
           <div className='row  mx-auto justify-content-around' style={{padding:'0px 100px'}}>
           {products.map((product,index)=>{
               return (
-                  <div  key={index}  className='col' style={{margin:'1px'}}>
+                  <div  key={index} className='m-3'  style={{margin:'1px'}}>
                   <Card product={product} />
                   </div>
               )

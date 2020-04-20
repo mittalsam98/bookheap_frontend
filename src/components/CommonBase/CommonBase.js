@@ -7,23 +7,25 @@ import {Link} from 'react-router-dom';
 const CommonBase =({children})=>{
     return(
         <div>
-            <div className='container-fluid' style={{height:'50px',marginTop:'20px'}}>
-                <div className='row pr-5 justify-content-center'>
-                    <div className="col-10">
-                        <input  placeholder='search by name'/>
+            <div className={`container-fluid ${styles.main}`}>
+                <div  className={`row align-items-center ${styles}`}>
+                    <div className="col-1">
                     </div>
+                    <div className="col-8">
+                        <input className={styles.input} placeholder='search by name'/>
+                    </div>
+                    {/* <div className='col-1'></div> */}
                   
                  {  (isAutheticated() && (
-                     <div className="col-2">
-                     <div className="row" >                 
-                        <div className="col-6">
-                        <Link className={`${styles.button}`} to="/addproduct">Sell</Link>
-                        </div>
-                        <div className="col-6 rounded-circle text-dark text-right">
+                        <div className={`col-1 rounded-circle text-dark text-right ${styles.dash}`} >
                             <Dashboard />
                         </div>
-                    </div>
-                    </div>
+                       
+                    ))}
+                 {  (isAutheticated() && (
+                        <div className="col-2">
+                        <Link className={`${styles.button}`} to="/addproduct">Sell</Link>
+                        </div>
                     ))}
                 </div>
             </div>

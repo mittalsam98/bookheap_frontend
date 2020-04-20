@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Button, Popover, PopoverBody } from 'reactstrap';
+import { Button, UncontrolledPopover,PopoverHeader, PopoverBody } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import styles from './Dashboard.module.css'
 
@@ -10,21 +10,21 @@ import styles from './Dashboard.module.css'
 
   return (
     <div>
-      <Button  className={styles.header} id="Popover1" type="button">
-       <span>D</span>
-      </Button>
-      <Popover placement="bottom" isOpen={popoverOpen} target="Popover1" toggle={toggle}>
-        <PopoverBody style={{width:'150px'}}>
+      <div  className={styles.header} id="PopoverLegacy" type="button">
+       <div className={styles.d}>D</div>
+      </div>
+      <UncontrolledPopover  trigger="legacy" placement="bottom" target="PopoverLegacy" >
+        <PopoverHeader style={{width:'180px'}}>
          <Link to='/account' className={styles.linktext}> Account </Link>
-        </PopoverBody>
-        <PopoverBody>
+        </PopoverHeader>
+        <PopoverHeader>
           <Link to='/signout' className={styles.linktext}> Signout </Link>
-        </PopoverBody>
-        <PopoverBody>
+        </PopoverHeader>
+        <PopoverHeader>
           <Link to='/myproducts' className={styles.linktext}> My Products
            </Link>
-        </PopoverBody>
-      </Popover>
+        </PopoverHeader>
+      </UncontrolledPopover>
     </div>
   );
 }

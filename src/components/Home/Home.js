@@ -16,7 +16,7 @@ const Home =()=>{
                         <p></p>
                         </div>
                         <div className="col-sm text-right">
-                        <img className='mt-4 ml-5' alt='logo' src={Book} width={400} height={600} />
+                        <img className={`mt-4 ml-5 ${styles.imgBook}`} alt='logo' src={Book} width={400} height={600} />
                         </div>  
                     </div>
             </div>
