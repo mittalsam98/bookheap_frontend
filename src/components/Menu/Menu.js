@@ -25,7 +25,7 @@ const Menu =({history})=>{
                     )}
 
                     {isAutheticated() && (
-                        <Link className={`nav-link mr-2 ${history.location.pathname==='/'?styles.buttonsignout:styles.button}`}  
+                        <Link to='#' className={`nav-link mr-2 ${history.location.pathname==='/'?styles.buttonsignout:styles.button}`}  
                             onClick={() => {
                             signout(() => {
                               history.push("/");

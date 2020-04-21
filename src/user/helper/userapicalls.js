@@ -31,7 +31,6 @@ return fetch(`${API}/addfavorites/${_id}/${productId}`, {
 
 
 export const deleteFavourites =(_id,productId,token)=>{
-    console.log(productId,token,_id)
 return fetch(`${API}/favorites/${_id}/${productId}`, { 
         method: "GET",
         headers:{

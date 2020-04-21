@@ -1,0 +1,12 @@
+.firstletter{
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 30px;
+    font-family: "Open Sans", sans-serif;
+    color: #FFFFFF;
+    background-color: rgb(255, 126, 54);
+    margin: 0px;
+    border-radius: 50%;
+}

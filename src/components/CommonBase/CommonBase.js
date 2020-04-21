@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import Menu from '../Menu/Menu';
 import styles from './CommonBase.module.css';
 import Dashboard from '../../user/Dashboard/Dashboard';

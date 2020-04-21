@@ -24,3 +24,7 @@ transition: all 1s ease;
 .innerimg:hover img{
 transform: scale(1.2);
 }
+
+.favIconRed{
+    color:red;
+}

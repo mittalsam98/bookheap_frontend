@@ -25,11 +25,7 @@ const AddProduct= () => {
             name,
             description,
             price,
-            loading,
-            photo,
-            error,
-            createdProduct,
-            getaRedirect,
+       
             formData
         } =values;
                     
