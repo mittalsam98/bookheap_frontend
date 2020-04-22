@@ -3,6 +3,14 @@ import { Button} from 'reactstrap';
 import CommonBase from '../CommonBase/CommonBase';
 import { createProducts } from '../helper/coreapicalls';
 import { isAutheticated } from '../../auth/helper';
+import HashLoader from "react-spinners/HashLoader";
+import { css } from "@emotion/core";
+
+const override = css`
+  display: block;
+  margin: 80px auto;
+`;
+
 
 const AddProduct= () => {
 
@@ -25,8 +33,9 @@ const AddProduct= () => {
             name,
             description,
             price,
-       
-            formData
+            loading,
+            formData,
+            error
         } =values;
                     
         
@@ -46,7 +55,7 @@ const AddProduct= () => {
             setValues({ ...values, error: "", loading: true });
             createProducts(user._id, token, formData).then(data => {
             if (data.error) {
-              setValues({ ...values, error: data.error });
+              setValues({ ...values, error: data.error,loading:false });
             } else {
                setValues({
                     ...values,
@@ -58,13 +67,36 @@ const AddProduct= () => {
                     createdProduct: data.name
                  });
             }
-            });
+            })
+            .catch(err=>{
+                setValues({ ...values, error:'Failed : ERR_CONNECTION_REFUSED ',loading:false, success: false });
+              }
+              );
         };
-        
+
+        const loadingSpinner = () => {
+            if(loading){  
+               return  <HashLoader
+               css={override}
+               size={100}
+               color={"#5F0A8F"}
+               loading={true}
+             />}
+         };
+    
+         const errorMessage = () => {
+            return (
+             <p className='alert alert-danger' style={{ display: error ? "" : "none" }}>
+                    {error}
+             </p>
+            );
+          };
+
         return (
         <CommonBase>
             <div className='container w-50 mt-5 border'>
-            <form>
+            {loading ? loadingSpinner()  :  <form>
+                {errorMessage()}
                 <div className={`form-group`}>
                     <label htmlFor="book" className=''>Book Name</label>
                     <input 
@@ -110,7 +142,7 @@ const AddProduct= () => {
                 <div className="form-group">
                 <Button color="primary" onClick={onSubmit}>Sell</Button>{' '}
                 </div>
-            </form>     
+            </form>   }  
         </div>
             </CommonBase>   
         )

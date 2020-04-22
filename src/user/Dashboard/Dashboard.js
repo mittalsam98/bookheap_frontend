@@ -1,10 +1,10 @@
 import React from 'react'
 import {  UncontrolledPopover,PopoverHeader } from 'reactstrap';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import styles from './Dashboard.module.css'
-import { isAutheticated } from '../../auth/helper';
+import { isAutheticated,signout } from '../../auth/helper';
 
- const Dashboard=()=> {
+ const Dashboard=({history})=> {
     const {user,token} =isAutheticated();
 
     const nameFirstLetter=()=>{
@@ -24,7 +24,13 @@ import { isAutheticated } from '../../auth/helper';
          <Link to='/account' className={styles.linktext}> Account </Link>
         </PopoverHeader>
         <PopoverHeader>
-          <Link to='/signout' className={styles.linktext}> Signout </Link>
+          <Link to='/' className={styles.linktext} 
+           onClick={() => {
+            signout(() => {
+              history.push("/");
+            });
+          }}
+          > Signout </Link>
         </PopoverHeader>
         <PopoverHeader>
           <Link to='/myproducts' className={styles.linktext}> My Products
@@ -34,4 +40,4 @@ import { isAutheticated } from '../../auth/helper';
     </div>
   );
 }
-export default Dashboard
+export default withRouter(Dashboard)

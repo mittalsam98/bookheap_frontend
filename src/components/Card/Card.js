@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const Card =({product ,history,setTrueVal})=>{
+const Card =({product ,history,refreshForUpload})=>{
 
     const [favColor, setFavColor] = useState();
     const {user,token} =isAutheticated();
@@ -37,7 +37,6 @@ const Card =({product ,history,setTrueVal})=>{
           .catch(err=>console.log(err))
     }
 
-    console.log("in card",error);
 
     const deleteFavouriteHandler =()=>{
         deleteFavourites(user._id,product._id,token)
@@ -47,7 +46,7 @@ const Card =({product ,history,setTrueVal})=>{
                return;
             }
             else{
-                setTrueVal(true)
+                refreshForUpload()
                 setSuccess(true);
                 console.log(data)
                 // setFavColor(styles.favIconRed);
@@ -73,24 +72,24 @@ const Card =({product ,history,setTrueVal})=>{
             {isAutheticated() && 
             (
                 <React.Fragment>
-                    <div className='row  justify-content-between'>
-                        <div className='ml-2 font-weight-bold'> 
+                    <div className='row  justify-content-around'>
+                        <div className='ml-3 font-weight-bold'> 
                             <p>Price : Rs.{product.price}</p>
                         </div>
                         <div className='mr-3 font-weight-bold'>
                         {history.location.pathname==='/books'?
                             <MdFavorite className={`${favColor}`} onClick={()=>{addFavouriteHandler(product.id)}}  />:  <MdDelete className={`${favColor}`} onClick={()=>{deleteFavouriteHandler(product._id)}}/> }
                         </div>    
-                        </div>
+                    </div>
                         <hr />
                     <div className='row justify-content-between '>
-                        <div className={`ml-2 ${styles.details}`}> 
+                        <div className={`ml-3 ${styles.details}`}> 
                             <p>Seller: {product.upload.name}</p>
                         </div>
-                        <div className={`ml-2 ${styles.details}`}>
-                        <p>Email: {product.upload.email}</p>
+                        <div className={`ml-3 ${styles.details}`}>
+                            <p>Email: {product.upload.email}</p>
                         </div>    
-                        <div className={`ml-2 ${styles.details}`}>
+                        <div className={`ml-3 ${styles.details}`}>
                         <p>Contact: {product.upload.phoneNo}</p>
                         </div>    
                     </div>

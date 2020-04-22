@@ -52,7 +52,7 @@ const Account = () => {
                     <hr className="my-4" />            
                 <p className='text-uppercase'>Contact No </p>
                 <p className="lead">{phoneNo}</p>
-                    <hr className="my-4" />
+                    {/* <hr className="my-4" /> */}
                 </div>
             </div>
        </CommonBase>

@@ -3,6 +3,13 @@ import styles from './Signup.module.css';
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa';
 import {Link} from 'react-router-dom'
 import {signup} from '../../auth/helper/index';
+import HashLoader from "react-spinners/HashLoader";
+import { css } from "@emotion/core";
+
+const override = css`
+  display: block;
+  margin: 80px auto;
+`;
 
 const Signup=()=>{
     const [values, setValues] = useState({
@@ -16,7 +23,7 @@ const Signup=()=>{
         success:false
     });
 
-    const { name, email, password,userinfo,phoneNo, error, success } = values;
+    const { name, email,loading, password,userinfo,phoneNo, error, success } = values;
 
     const handleChange=name=>event=>{
        setValues({...values,error:false,[name]: event.target.value });
@@ -24,11 +31,11 @@ const Signup=()=>{
 
     const onSubmit=event=>{
         event.preventDefault();
-        setValues({ ...values, error: false })
+        setValues({ ...values, error: false,loading:true })
         signup({ name, email, password,phoneNo,userinfo})
         .then(data => {
             if (data.error) {
-              setValues({ ...values, error: data.error,loading:true, success: false });
+              setValues({ ...values, error: data.error,loading:false, success: false });
             } else {
               setValues({
                 ...values,
@@ -43,7 +50,10 @@ const Signup=()=>{
               })
             }
           })
-          .catch(console.log("Error in signup"));
+          .catch(err=>{
+            setValues({ ...values, error:'Failed : ERR_CONNECTION_REFUSED ',loading:false, success: false });
+          }
+          );
     };
 
     const errorMessage = () => {
@@ -53,6 +63,17 @@ const Signup=()=>{
          </p>
         );
       };
+
+      const loadingSpinner = () => {
+        if(loading){  
+           return  <HashLoader
+           css={override}
+           size={100}
+           color={"#5F0A8F"}
+           loading={true}
+         />}
+     };
+
 
       const successMessage=()=>{
          return(
@@ -75,7 +96,7 @@ const Signup=()=>{
         <div className={styles.title}>
                 Sign Up
         </div>
-        <form>
+        {loading ? loadingSpinner()  :  <form>
             <small id="emailHelp" className="mb-4 form-text text-muted text-center">We'll never share your info with anyone else.</small>
             {errorMessage()}
             {successMessage()}
@@ -137,7 +158,7 @@ const Signup=()=>{
             <div className="form-group">
             <button onClick={onSubmit} className={`btn ${styles.button}`} >Submit</button>
             </div>
-        </form>  
+        </form>  }
         </div>
         </>
   )   

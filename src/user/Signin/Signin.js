@@ -3,7 +3,13 @@ import styles from './Signin.module.css';
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa'; //FaEyeSlash
 import {Link,Redirect} from 'react-router-dom';
 import {signin,authenticate,isAutheticated} from '../../auth/helper/index';
+import HashLoader from "react-spinners/HashLoader";
+import { css } from "@emotion/core";
 
+const override = css`
+  display: block;
+  margin: 80px auto;
+`;
 
 const Signin=()=>{
     const [values, setValues] = useState({
@@ -15,7 +21,7 @@ const Signin=()=>{
         didRedirect:false
     });
 
-    const {  email, password, error,didRedirect } = values;
+    const {  email, password, error,didRedirect,loading } = values;
     
     const handleChange=name=>event=>{
         setValues({...values,error:false,[name]: event.target.value });
@@ -26,15 +32,15 @@ const Signin=()=>{
         try{
             setValues({...values, email: "",password: "",loading:true,error:'',success:'true'})
             const data= await signin({email,password});
-            console.log(data);
             authenticate(data,() => {
                 setValues({
                   ...values,
+                  loading:false,
                   didRedirect: true
                 });
             })
         } catch(error){
-            setValues({ ...values, error: error.response.error,loading:false, success: false });
+            setValues({ ...values, error:'Failed : ERR_CONNECTION_REFUSED ',loading:false, success: false });
         }
     }
 
@@ -44,6 +50,16 @@ const Signin=()=>{
                 {error}
          </p>
         );
+      };
+
+      const loadingSpinner = () => {
+         if(loading){  
+            return  <HashLoader
+            css={override}
+            size={100}
+            color={"#5F0A8F"}
+            loading={true}
+          />}
       };
 
       const performRedirect = () => {
@@ -73,7 +89,7 @@ const Signin=()=>{
         <div className={styles.title}>
                 Sign In
         </div>
-        <form>
+      {loading ? loadingSpinner()  :  <form>
             {performRedirect()}
             {errorMessage()}
             <div className={`form-group  ${styles.item}`}>
@@ -100,7 +116,7 @@ const Signin=()=>{
             <div className="form-group">
             <button className={`btn ${styles.button}`} onClick={onSubmit}>Submit</button>
             </div>
-        </form>  
+        </form>  }
         </div>
         </>
     )   

@@ -28,13 +28,13 @@ const Book =()=>{
       <CommonBase>
         <div className='container-fluid mt-5'>
           <div className='row  mx-auto justify-content-around' style={{padding:'0px 100px'}}>
-          {products.map((product,index)=>{
+          {products.length ? products.map((product,index)=>{
               return (
                   <div  key={index} className='m-3'  style={{margin:'1px'}}>
                   <Card product={product} />
                   </div>
               )
-            })}
+            }) : <h1 className="p-5">No books to show :)</h1>}
             </div>
         </div>
       </CommonBase>

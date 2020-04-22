@@ -11,14 +11,11 @@ const AddProduct= () => {
     const [trueVal, setTrueVal] = useState(false)
     const {user,token} = isAutheticated();
 
-    console.log("fdsaf",trueVal);
 
     useEffect(() => {
       const loadAllFavourites = () => {
           getFavourite(user._id,token).then(data => {
-            console.log("Fdas",data);
             if (data.error) {
-              
             } else {
               setFavourites(data);
             }
@@ -27,21 +24,21 @@ const AddProduct= () => {
         loadAllFavourites();
       }, [trueVal]);
 
-      console.log("fadsfas",favourites)
+      const refreshForUpload=()=>{
+        setTrueVal(!trueVal)
+      }
 
             return (
         <CommonBase>
             <div className='container-fluid mt-5'>
             <div className='row  mx-auto justify-content-around' style={{padding:'0px 100px'}}>
-              {console.log("hell")}
-            {favourites.map((favourite,index)=>{
-              {console.log("hesssll")}
+            {favourites.length ? favourites.map((favourite,index)=>{
                 return (
                     <div  key={index}  className='col' style={{margin:'1px'}}>
-                    <Card product={favourite} setTrueVal={setTrueVal} />
+                    <Card product={favourite} refreshForUpload={refreshForUpload} />
                     </div>
                 )
-                })}
+                }) : <h1 className="p-5">No books to show in your favourite list...</h1>}
                 </div>
             </div>
         </CommonBase>   
