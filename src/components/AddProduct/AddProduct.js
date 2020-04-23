@@ -40,7 +40,7 @@ const AddProduct= () => {
                     
         
         const handleChange = name => event => {
-            const value = name === "    " ? event.target.files[0] : event.target.value;
+            const value = name === "photo" ? event.target.files[0] : event.target.value;
             formData.set(name, value);
             setValues({ ...values, [name]: value ,formData:formData });
         };

@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { addFavourite, deleteFavourites } from '../../user/helper/userapicalls';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ImageHelper from '../helper/ImageHelper';
 
 
 const Card =({product ,history,refreshForUpload})=>{
@@ -64,8 +65,8 @@ const Card =({product ,history,refreshForUpload})=>{
 
     return( 
         <div className={`card ${styles.card}`} style={{width:'17rem',height:''}} >
-           
-        <div className={styles.innerimg}>  <img className="card-img-top" src='https://images.pexels.com/photos/1178683/pexels-photo-1178683.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt="" /></div>
+           <ImageHelper product={product} />
+        {/* <div className={styles.innerimg}>  <img className="card-img-top" src='https://images.pexels.com/photos/1178683/pexels-photo-1178683.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt="" /></div> */}
         <div className={`card-body ${styles.cardbody}`}>
             <h6 className="card-title">{product.name}</h6>
             <p className="card-text">{product.description.substr(0,30)}</p>
