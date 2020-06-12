@@ -3,7 +3,6 @@ import CommonBase from '../../components/CommonBase/CommonBase';
 import { getFavourite } from '../helper/userapicalls';
 import { isAutheticated } from '../../auth/helper';
 import Card from '../../components/Card/Card';
-// import { ToastContainer, toast } from 'react-toastify';
 
 const AddProduct= () => {
     const [favourites, setFavourites] = useState([])

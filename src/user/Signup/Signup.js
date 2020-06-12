@@ -13,11 +13,11 @@ const override = css`
 
 const Signup=()=>{
     const [values, setValues] = useState({
-        name:'Sachin',
-        email:'mittalsam98@gmail.com',
-        phoneNo:'9050949461',
-        password:'123456',
-        userinfo:'a dev',
+        name:'',
+        email:'',
+        phoneNo:'',
+        password:'',
+        userinfo:'',
         error:'',
         loading:false,
         success:false

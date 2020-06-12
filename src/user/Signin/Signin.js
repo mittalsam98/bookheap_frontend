@@ -13,8 +13,8 @@ const override = css`
 
 const Signin=()=>{
     const [values, setValues] = useState({
-        email:'mittalsam98@gmail.com',
-        password:'123456',
+        email:'',
+        password:'',
         error:'',
         loading:false,
         success:false,
@@ -39,8 +39,12 @@ const Signin=()=>{
                   didRedirect: true
                 });
             })
-        } catch(error){
-            setValues({ ...values, error:'Failed : ERR_CONNECTION_REFUSED ',loading:false, success: false });
+        } catch(e){
+            if(e.response === undefined || !e.response){
+            setValues({ ...values,error: 'Failed:ERR_CONNECTION_REFUSED' ,loading:false, success: false });
+            return 
+            }
+            setValues({ ...values,error:  e.response.error ? e.response.error : 'Failed:ERR_CONNECTION_REFUSED' ,loading:false, success: false });
         }
     }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
 import Base from '../Base/Base';
 import styles from './Home.module.css'; // Import css modules stylesheet as styles
 import Book from '../../assest/bstack.png'

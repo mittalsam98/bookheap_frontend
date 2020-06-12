@@ -32,6 +32,14 @@
     outline:none ;
 }
 
+.input_replace {
+    font-style: italic ;
+    color: rgb(98, 12, 145);
+    letter-spacing: 0.2rem;
+    /* text-shadow: 3px 2px 40px #620C91,  0 0 0.2em#620C91; */
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .input:focus{
     border-radius: 19px;
     /* box-shadow: none; */
@@ -50,7 +58,11 @@
         border: 1.5px solid #2a65ea;
         outline:none ;
     }
-
+    .input_replace {
+        letter-spacing: 0.1rem;
+        /* text-shadow: 3px 2px 40px #620C91,  0 0 0.2em#620C91; */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
     .dash{
         margin-left:-70px;
     }

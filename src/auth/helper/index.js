@@ -1,7 +1,7 @@
-import { API } from "../../backend";
+// import { API } from "../../backend";
 
 export const signup= user =>{
-    return fetch(`${API}/signup`,{
+    return fetch(`/api/signup`,{
         method:'POST',
         headers:{
             Accept: "application/json",
@@ -17,7 +17,7 @@ export const signup= user =>{
 
 export const signin=async (user)=>{
     
-    const response=await fetch(`${API}/signin`,{
+    const response=await fetch(`/api/signin`,{
         method:'POST',
         headers:{
             Accept: "application/json",
@@ -63,7 +63,7 @@ export const authenticate = (data, next) => {
       localStorage.removeItem("jwt");
       next();
   
-      return fetch(`${API}/signout`, {
+      return fetch(`/api/signout`, {
         method: "GET"
       })
         .then(response => console.log("signout success"))

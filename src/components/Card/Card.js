@@ -49,8 +49,7 @@ const Card =({product ,history,refreshForUpload})=>{
             else{
                 refreshForUpload()
                 setSuccess(true);
-                console.log(data)
-                // setFavColor(styles.favIconRed);
+                setFavColor(styles.favIconRed);
                 toast.success(data.msg, {
                     position: "bottom-right",
                     autoClose: 2000,
@@ -64,8 +63,8 @@ const Card =({product ,history,refreshForUpload})=>{
     }
 
     return( 
-        <div className={`card ${styles.card}`} style={{width:'17rem',height:''}} >
-           <ImageHelper product={product} />
+        <div className={`card ${styles.card}`} style={{width:'17rem',maxHeight:'27rem'}} >
+           <div className={styles.innerimg}> <ImageHelper product={product} /></div>
         {/* <div className={styles.innerimg}>  <img className="card-img-top" src='https://images.pexels.com/photos/1178683/pexels-photo-1178683.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt="" /></div> */}
         <div className={`card-body ${styles.cardbody}`}>
             <h6 className="card-title">{product.name}</h6>

@@ -5,7 +5,7 @@ import styles from './Dashboard.module.css'
 import { isAutheticated,signout } from '../../auth/helper';
 
  const Dashboard=({history})=> {
-    const {user,token} =isAutheticated();
+    const {user} =isAutheticated();
 
     const nameFirstLetter=()=>{
       if(user!= null){

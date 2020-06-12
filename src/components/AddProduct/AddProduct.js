@@ -16,9 +16,9 @@ const AddProduct= () => {
 
 
         const [values, setValues] = useState({
-            name:'Simulation',
-            description: "a book on matalab and simulation",
-            price: "201",
+            name:'',
+            description: "",
+            price: "",
             photo:'',
             error:'',
             loading: false,
@@ -59,11 +59,12 @@ const AddProduct= () => {
             } else {
                setValues({
                     ...values,
-                    name: "Simulation",
-                    description: "a book on matalab and simulation",
-                    price: "201",
-                    photo: "",
+                    name:'',
+                    description: "",
+                    price: "",
+                    photo:'',
                     loading: false,
+                    error:'',
                     createdProduct: data.name
                  });
             }
@@ -98,14 +99,14 @@ const AddProduct= () => {
             {loading ? loadingSpinner()  :  <form>
                 {errorMessage()}
                 <div className={`form-group`}>
-                    <label htmlFor="book" className=''>Book Name</label>
+                    <label htmlFor="name" className=''>Book Name</label>
                     <input 
                     onChange={handleChange('name')} 
                     value={name}
                     type="text" 
                     name="name"
                     className={`form-control`} 
-                    id="book" 
+                    id="name" 
                     />
                 </div>
                 <div className={`form-group`}>
@@ -126,17 +127,17 @@ const AddProduct= () => {
                     type="number" 
                     name="price"
                     className={`form-control `} 
-                    id="price" 
+                    id='price'
                     />
                 </div>
                 <div className={`form-group`}>
-                    <label htmlFor="price" className=''>Add a photo</label>
+                    <label htmlFor="photo" className=''>Add a photo</label>
                     <input 
                     onChange={handleChange('photo')} 
                     type="file" 
                     name="photo"
                     className={`form-control`} 
-                    id="price" 
+                    id='photo'
                     />
                 </div>
                 <div className="form-group">

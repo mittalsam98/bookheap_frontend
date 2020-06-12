@@ -12,7 +12,8 @@ const CommonBase =({children})=>{
                     <div className="col-1">
                     </div>
                     <div className="col-8">
-                        <input className={styles.input} placeholder='search by name'/>
+                        <h2 className={styles.input_replace}>Bookheap</h2>
+                        {/* <input className={styles.input} placeholder='search by name'/> */}
                     </div>
                     {/* <div className='col-1'></div> */}
                   

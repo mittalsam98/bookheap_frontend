@@ -9,7 +9,8 @@
 }
 
 .innerimg{
-    height: 180px;
+    border-radius:7px 7px 0px 0px;
+  border: gray;
     overflow: hidden;
 }
 
@@ -22,6 +23,7 @@ transition: all 1s ease;
 }
 
 .innerimg:hover img{
+    overflow: hidden;
 transform: scale(1.2);
 }
 

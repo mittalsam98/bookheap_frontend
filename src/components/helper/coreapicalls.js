@@ -1,7 +1,7 @@
 import { API } from "../../backend";
 
 export const getProducts = () => {
-    return fetch(`${API}/products`, { method: "GET" })
+    return fetch(`/api/products`, { method: "GET" })
       .then(response => {
         return response.json();
       })
@@ -11,7 +11,7 @@ export const getProducts = () => {
 
 export const createProducts = (_id,token,formData) => {
     formData.append('upload',_id);
-    return fetch(`${API}/product/create/${_id}`, { 
+    return fetch(`/api/product/create/${_id}`, { 
       method: "POST",
       headers:{
         Accept: "application/json",
