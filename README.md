@@ -2,7 +2,6 @@
 It is a book selling web app built in a MERN stack and deployed on Netlify. You can sell books with images and can also see what others are selling. 
 
 Live Preview at : https://bookheap-app.netlify.app/
-Backend code is there is not here :).
 
 ### Hi there 👋 I am Sachin, a full stack web and app developer. I love to build new things that excites me a lot.
 
