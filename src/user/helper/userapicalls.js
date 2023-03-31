@@ -1,7 +1,7 @@
 // import { API } from "../../backend"
 
 export const getUser =(_id,token)=>{
-return fetch(`/api/user/${_id}`, { 
+return fetch(`${API}/api/user/${_id}`, { 
         method: "GET",
         headers:{
             Accept: "application/json",
@@ -15,7 +15,7 @@ return fetch(`/api/user/${_id}`, {
 }
 
 export const addFavourite =(_id,productId,token)=>{
-return fetch(`/api/addfavorites/${_id}/${productId}`, { 
+return fetch(`${API}/api/addfavorites/${_id}/${productId}`, { 
         method: "POST",
         headers:{
             Accept: "application/json",
@@ -31,7 +31,7 @@ return fetch(`/api/addfavorites/${_id}/${productId}`, {
 
 
 export const deleteFavourites =(_id,productId,token)=>{
-return fetch(`/api/favorites/${_id}/${productId}`, { 
+return fetch(`${API}/api/favorites/${_id}/${productId}`, { 
         method: "GET",
         headers:{
             Accept: "application/json",
@@ -48,7 +48,7 @@ return fetch(`/api/favorites/${_id}/${productId}`, {
 
 
 export const getFavourite =(_id,token)=>{
-return fetch(`/api/favorites/${_id}`, { 
+return fetch(`${API}/api/favorites/${_id}`, { 
         method: "GET",
         headers:{
             Accept: "application/json",
