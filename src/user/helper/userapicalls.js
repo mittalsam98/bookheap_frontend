@@ -1,4 +1,4 @@
-// import { API } from "../../backend"
+import { API } from "../../backend"
 
 export const getUser =(_id,token)=>{
 return fetch(`${API}/api/user/${_id}`, { 
